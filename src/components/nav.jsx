@@ -9,7 +9,6 @@ export const NavBar = () => {
     const [isVisible, setIsVisible] = useState(false)
     const handleClick = useOnClick(() => {
         setIsVisible(!isVisible)
-        console.log(isVisible)
     })
   return (
     <div className="w-full h-[10%] bg-[#0a0a0a] px-4 flex justify-between fixed ">
@@ -19,7 +18,7 @@ export const NavBar = () => {
       </div>
       <div className="flex h-full items-center bg-[#0a0a0a]">
         <RiMenu4Fill className="text-white text-2xl md:hidden" onClick={handleClick} />
-        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-500 ease-in-out md:relative absolute bg-[#0a0a0a] p-4 md:p-0 left-0 w-full md:z-10 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
+        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-1000 ease-in-out md:relative absolute bg-[#0a0a0a] p-4 md:p-0 left-0 w-full md:z-10 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
             <li>
             <NavLink
                 to="/"
@@ -30,6 +29,7 @@ export const NavBar = () => {
                     animate={{ borderBottom: isActive ? "2px solid #901ee4" : "none" }}
                     transition={{ duration: 0.3 }}
                     className="w-max"
+                    onClick={handleClick}
                   >
                     <span className="block">Dashboard</span>
                   </motion.div>
@@ -46,6 +46,7 @@ export const NavBar = () => {
                     animate={{ borderBottom: isActive ? "2px solid #901ee4" : "none" }}
                     transition={{ duration: 0.3 }}
                     className="w-max"
+                    onClick={handleClick}
                   >
                     <span className="block">Data Visualization</span>
                   </motion.div>
@@ -62,6 +63,7 @@ export const NavBar = () => {
                     animate={{ borderBottom: isActive ? "2px solid #901ee4" : "none" }}
                     transition={{ duration: 0.1 }}
                     className="w-max"
+                    onClick={handleClick}
                   >
                     <span className="block">AI Summary</span>
                   </motion.div>
