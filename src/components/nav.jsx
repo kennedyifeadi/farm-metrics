@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaWater } from "react-icons/fa6";
+import { RiMenu4Fill } from "react-icons/ri";
+
+
 
 export const NavBar = () => {
   return (
@@ -10,6 +13,7 @@ export const NavBar = () => {
         <h1 className="text-white font-bold text-[22px]">Farm <span className="text-[#901ee4]">Metrics</span></h1>
       </div>
       <div className="flex h-full">
+        <RiMenu4Fill className="text-white text-2xl md:hidden" onClick={handleClick}/>
         <ul className="flex gap-3 text-white h-full items-center">
             <li>
             <NavLink
