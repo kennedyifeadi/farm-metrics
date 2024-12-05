@@ -1,11 +1,17 @@
+import { BrowserRouter } from "react-router-dom"
+import { NavBar } from "./components/nav"
+import { AnimatedRoutes } from "./components/AnimatedRoutes"
 
 
 function App() {
 
   return (
-    <div className='text-[red]'>
-      working
-    </div>
+      <BrowserRouter>
+        <div className='w-full h-[100dvh]'>
+          <NavBar/>
+          <AnimatedRoutes/>
+        </div>
+      </BrowserRouter>
   )
 }
 

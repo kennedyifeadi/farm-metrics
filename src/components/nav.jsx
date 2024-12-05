@@ -1,5 +1,5 @@
 
-export const nav = () => {
+export const NavBar = () => {
   return (
     <div>
       
