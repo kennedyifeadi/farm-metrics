@@ -7,7 +7,7 @@ function App() {
 
   return (
       <BrowserRouter>
-        <div className='w-full h-[100dvh] relative flex flex-col overflow-y-hidden'>
+        <div className='w-full h-[100dvh] relative flex flex-col overflow-x-hidden'>
           <NavBar/>
           <AnimatedRoutes/>
         </div>
