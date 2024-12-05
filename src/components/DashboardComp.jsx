@@ -65,7 +65,7 @@ export const DashboardComp = ({
             {chart}
           </div>
           <span
-            className={`text-[12px] pr-2 flex w-full ${
+            className={`text-[12px] pr-2 flex w-fullitems-center  pb-2 ${
               color === "dark" ? "text-[#ffffff91]" : "text-[#0000006e]"
             }`}
           >
