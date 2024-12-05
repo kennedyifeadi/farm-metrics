@@ -10,9 +10,14 @@ import {
   import { Scatter } from "react-chartjs-2";
   ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 export const TubidityChart = () => {
+  // const config ={
+  //   type: "scatter",
+  //   data,
+  //   options
+  // }
     const options = {
         plugins: {
-            tooltip: false,
+            tooltip: true,
             legend: {
               labels: {
                 usePointStyle: true,
@@ -20,30 +25,41 @@ export const TubidityChart = () => {
                 boxHeight: 5
               },
               position: "top",
-              xlabels: "Turbidity"
+              xlabels: "Turbidity",
+              color: "white"
             }
           },
           scales: {
             x: {
+              ticks: {
+                color: "gray"
+              },
               beginAtZero: true,
-              max: 40,
+              max: 20,
               title: {
+                color: 'gray',
                 display: true,
-                text: "Turbidity values"
+                text: "X values"
               },
               grid: {
+                color: "gray",
                 display: true
               }
             },
             y: {
+              ticks: {
+                color: "gray"
+              },
               beginAtZero: true,
-              max: 200,
+              max: 10,
               title: {
+                color: 'gray',
                 display: true,
-                text: "Day of the week"
+                text: "Y values"
               },
               grid: {
-                display: false
+                color: "gray",
+                display: true
               }
             }
           }

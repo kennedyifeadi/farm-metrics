@@ -12,7 +12,7 @@ export const DashboardComp = ({
 }) => {
   return (
     <div
-      className={` w-full md:w-[30%] p-6 md:p-4 rounded-md ${
+      className={` w-full md:w-[30%] p-6 md:p-4 rounded-md h-[48%] ${
         color === "dark" ? "bg-[#0a0a0a]" : "glassM"
       }`}
     >
@@ -58,20 +58,17 @@ export const DashboardComp = ({
       <div className="flex items-center justify-between mt-2">
         <div className="flex flex-col gap-1 text-white">
           <span className="text-[20px] font-bold ">Current: {value}</span>
-          <div className="w-full border border-black">
+          <div className="w-[100%]h-[100px]">
             {chart}
           </div>
           <span
-            className={`text-[12px] pr-2 ${
+            className={`text-[12px] pr-2 flex w-full ${
               color === "dark" ? "text-[#ffffff91]" : "text-[#0000006e]"
             }`}
           >
-            {" "}
             {text}
-          </span>
-        </div>
-        <span
-          className={`px-3 py-[2px] rounded-full text-sm ${
+            <span
+          className={`px-3 py-[3px] rounded-full h-max text-sm ${
             status === "Normal"
               ? "bg-green-100 text-green-600"
               : status === "Soft"
@@ -81,6 +78,9 @@ export const DashboardComp = ({
         >
           {status}
         </span>
+          </span>
+        </div>
+        
       </div>
     </div>
   );

@@ -11,10 +11,17 @@ export const TurbidityChartData = {
     datasets: [
         {
             label: "Turbidity",
-            data: [1, 0.4, 3, 5, 2, 3, 4],
-            fill: false,
-            borderColor: "rgb(75, 192, 192)",
-            tension: 0.1
+            data: [
+                {
+                  x: 10, y: 8
+                },
+                { x: 5, y: 7 },
+                { x: 1, y: 5 },
+                { x: 4, y: 6 }
+              ],
+            fill: true,
+            backgroundColor: ["rgba(255, 99, 132, 1)"],
+            
         },
     ]
 }
