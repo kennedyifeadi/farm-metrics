@@ -7,7 +7,7 @@ import AiSummary from "../pages/AiSummary";
 export const AnimatedRoutes = () => {
     const location = useLocation();
     return (
-        <div className="w-full h-[90%]">
+        <div className="w-full h-[90%] mt-16">
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Dashboard/>} exact />

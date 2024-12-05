@@ -12,7 +12,7 @@ export const NavBar = () => {
         console.log(isVisible)
     })
   return (
-    <div className="w-full h-[10%] bg-[#0a0a0a] px-4 flex justify-between relative ">
+    <div className="w-full h-[10%] bg-[#0a0a0a] px-4 flex justify-between fixed ">
       <div className="flex gap-3 h-full items-center bg-[#0a0a0a]">
         <FaWater className="text-white text-2xl" />
         <h1 className="text-white font-bold text-[18px] md:text-[22px]">Farm <span className="text-[#901ee4]">Metrics</span></h1>

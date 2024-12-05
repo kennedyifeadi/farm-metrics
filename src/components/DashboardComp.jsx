@@ -1,5 +1,6 @@
 import { IoEllipsisHorizontalSharp } from "react-icons/io5";
 import { RxArrowTopRight } from "react-icons/rx";
+import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 export const DashboardComp = ({
   title,
@@ -46,6 +47,7 @@ export const DashboardComp = ({
             } w-8 p-2 h-8 rounded-full flex justify-center items-center`}
           />
 
+          <NavLink to="/datavisualization">
           <RxArrowTopRight
             className={`${
               color === "dark"
@@ -53,6 +55,7 @@ export const DashboardComp = ({
                 : "bg-white text-black"
             } w-8 h-8 p-2 rounded-full flex justify-center items-center`}
           />
+          </NavLink>
         </div>
       </div>
       <div className="flex items-center justify-between mt-2">
