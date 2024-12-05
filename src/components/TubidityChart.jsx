@@ -37,7 +37,7 @@ export const TubidityChart = () => {
                 color: "gray"
               },
               beginAtZero: true,
-              max: 20,
+              max: 10,
               title: {
                 color: 'gray',
                 display: true,
