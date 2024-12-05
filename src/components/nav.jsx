@@ -12,14 +12,14 @@ export const NavBar = () => {
         console.log(isVisible)
     })
   return (
-    <div className="w-full h-[50px] bg-[#323232] px-4 flex justify-between relative ">
-      <div className="flex gap-3 h-full items-center bg-[#323232]">
+    <div className="w-full h-[10%] bg-[#0a0a0a] px-4 flex justify-between relative ">
+      <div className="flex gap-3 h-full items-center bg-[#0a0a0a]">
         <FaWater className="text-white text-2xl" />
         <h1 className="text-white font-bold text-[18px] md:text-[22px]">Farm <span className="text-[#901ee4]">Metrics</span></h1>
       </div>
-      <div className="flex h-full items-center bg-[#323232]">
+      <div className="flex h-full items-center bg-[#0a0a0a]">
         <RiMenu4Fill className="text-white text-2xl md:hidden" onClick={handleClick} />
-        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-500 ease-in-out md:relative absolute bg-[#323232] p-4 md:p-0 left-0 w-full md:z-10 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
+        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-500 ease-in-out md:relative absolute bg-[#0a0a0a] p-4 md:p-0 left-0 w-full md:z-10 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
             <li>
             <NavLink
                 to="/"
@@ -63,7 +63,7 @@ export const NavBar = () => {
                     transition={{ duration: 0.1 }}
                     className="w-max"
                   >
-                    <span className="block">Ai Summary</span>
+                    <span className="block">AI Summary</span>
                   </motion.div>
                 )}
               </NavLink>

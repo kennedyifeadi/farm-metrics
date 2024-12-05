@@ -7,7 +7,7 @@ function App() {
 
   return (
       <BrowserRouter>
-        <div className='w-full h-[100dvh] overflow-y-hidden'>
+        <div className='w-full h-[100dvh]'>
           <NavBar/>
           <AnimatedRoutes/>
         </div>
