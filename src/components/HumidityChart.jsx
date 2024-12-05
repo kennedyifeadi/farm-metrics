@@ -1,9 +1,26 @@
-import { TemperatureChartData } from '../data/TemperatureData'
-import { Line } from "react-chartjs-2";
-import {Chart, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend} from 'chart.js'
-Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend)
-
-export const TemperatureChart = () => {
+import { Bar } from "react-chartjs-2";
+import { HumidityChartData } from "../data/HumidityData";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarController,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  } from 'chart.js';
+  
+  ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    BarController
+  );
+export const HumidityChart = () => {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
@@ -12,7 +29,7 @@ export const TemperatureChart = () => {
           x: {
             grid: {
                 color: "gray",
-                display: true
+                display: false
               },
             ticks: {
               font: {
@@ -25,7 +42,7 @@ export const TemperatureChart = () => {
           y: {
             grid: {
                 color: "gray",
-                display: true
+                display: false
               },
             ticks: {
               font: {
@@ -45,12 +62,10 @@ export const TemperatureChart = () => {
                 boxHeight: 5
               },
               position: "top",
-              xlabels: "Temperature",
+              xlabels: "Humidity",
               color: "white"
             }
           },
       };
-  return <Line data={TemperatureChartData} options={options}/>
-
+    return <Bar data={HumidityChartData} options={options}/>
 }
-
