@@ -16,6 +16,8 @@ export const TubidityChart = () => {
   //   options
   // }
     const options = {
+      responsive: true,
+      maintainAspectRatio: false,
         plugins: {
             tooltip: true,
             legend: {
