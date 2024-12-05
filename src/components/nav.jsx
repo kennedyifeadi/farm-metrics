@@ -4,6 +4,7 @@ import { FaWater } from "react-icons/fa6";
 import { RiMenu4Fill } from "react-icons/ri";
 import { useOnClick } from "../hooks/OnClick"
 import { useState } from "react";
+import { IoCloseSharp } from "react-icons/io5"
 
 export const NavBar = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -17,8 +18,8 @@ export const NavBar = () => {
         <h1 className="text-white font-bold text-[18px] md:text-[22px]">Farm <span className="text-[#901ee4]">Metrics</span></h1>
       </div>
       <div className="flex h-full items-center bg-[#0a0a0a]">
-        <RiMenu4Fill className="text-white text-2xl md:hidden" onClick={handleClick} />
-        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-1000 ease-in-out md:relative absolute bg-[#0a0a0a] p-4 md:p-0 left-0 w-full md:z-10 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
+        {isVisible ? (<IoCloseSharp className="text-white text-2xl md:hidden duration-1000" onClick={handleClick}  />) : (<RiMenu4Fill className="text-white text-2xl md:hidden" onClick={handleClick} />) }
+        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-1000 ease-in-out md:relative absolute bg-[#0a0a0a] p-4 md:p-0 left-0 w-full z-[-1] md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
             <li>
             <NavLink
                 to="/"
