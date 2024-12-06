@@ -1,7 +1,7 @@
 import { TemperatureChartData } from '../data/TemperatureData'
 import { Line } from "react-chartjs-2";
-import {Chart, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend} from 'chart.js'
-Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend)
+import {Chart, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, Filler} from 'chart.js'
+Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, Filler)
 
 export const TemperatureChart = () => {
     const options = {
