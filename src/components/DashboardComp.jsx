@@ -13,7 +13,7 @@ export const DashboardComp = ({
 }) => {
   return (
     <div
-      className={` w-full md:w-[30%] p-4 rounded-md h-[48%] flex flex-col justify-around ${
+      className={` w-full md:max-w-full md:w-[30%] md:min-w-[410px] p-4 rounded-md h-[48%] flex flex-col justify-around ${
         color === "dark" ? "bg-[#0a0a0a]" : "glassM"
       }`}
     >
