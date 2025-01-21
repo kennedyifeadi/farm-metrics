@@ -10,10 +10,12 @@ export const DashboardComp = ({
   text,
   icon,
   color,
+  size,
 }) => {
   return (
     <div
-      className={` w-full md:max-w-full md:w-[30%] md:min-w-[410px] p-4 rounded-md h-[48%] flex flex-col justify-around ${
+      className={` w-full md:max-w-full ${size === 1 ? "md:w-[30%] md:min-w-[410px]": size === 2 ? "md:w-[60%] md:min-w-[860px]" : ""} p-4 rounded-md h-[48%]
+       flex flex-col justify-around ${
         color === "dark" ? "bg-[#0a0a0a]" : "glassM"
       }`}
     >
@@ -66,7 +68,7 @@ export const DashboardComp = ({
           </div>
           <span
             className={`text-[12px] pr-2 flex w-full items-center ${
-              color === "dark" ? "text-[#ffffff91]" : "text-[#0000006e]"
+              color === "dark" ? "text-white" : "text-[#0000006e]"
             }`}
           >
             <span className="pr-1">
@@ -99,4 +101,5 @@ DashboardComp.propTypes = {
   status: PropTypes.string,
   value: PropTypes.string,
   chart: PropTypes.element,
+  size: PropTypes.number,
 };
