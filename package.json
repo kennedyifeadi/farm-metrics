@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "@lottiefiles/dotlottie-react": "^0.12.1",
+    "@lottiefiles/lottie-player": "^2.0.12",
     "chart.js": "^4.4.7",
     "firebase": "^11.0.2",
     "framer-motion": "^11.13.1",

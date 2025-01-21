@@ -24,7 +24,7 @@ const Dashboard = () => {
                     <DashboardComp size={1} title="Humidity" value="55%" color="dark" status="Soft" icon={<WiHumidity />} text="High (>70%): Excess humidity can lead to fungal growth and diseases in ponds which would affect production rate." chart={<HumidityChart/>}/>
                     <DashboardComp size={1} title="Turbidity" value="4NTU" color="dark" status="Soft" icon={<TurbidityIcon />} text="High (>5 NTU): Indicates excessive suspended particles, reducing light penetration and oxygen levels, potentially stressing fish" chart={<TubidityChart/>} />
                     <DashboardComp size={1} title="TDS" value="200ppm" color="dark" status="Normal" icon={<TDSIcon />} text="Low (<300 ppm): Nutrients are insufficient; water may lack essential minerals for fish health." chart={<TdsChart/>}/>
-                    <DashboardComp size={2} title="TDS" value="200ppm" color="dark" status="Normal" icon={<TDSIcon />} text="Low (<300 ppm): Nutrients are insufficient; water may lack essential minerals for fish health." chart={<TdsChart/>}/>
+                    <DashboardComp size={2} title="Alert" value="no alert yet" color="dark"/>
                 </div>
             </motion.div>
       )

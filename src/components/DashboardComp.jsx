@@ -62,7 +62,7 @@ export const DashboardComp = ({
       </div>
       <div className="flex items-center justify-between w-full">
         <div className="flex flex-col gap-1 text-white">
-          <span className="text-[20px] font-bold ">Current: {value}</span>
+          <span className="text-[20px] font-bold "> {"Current: " + value}</span>
           <div className="w-[100%] h-[100px]">
             {chart}
           </div>

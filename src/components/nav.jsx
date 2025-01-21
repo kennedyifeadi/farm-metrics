@@ -17,9 +17,9 @@ export const NavBar = () => {
         <FaWater className="text-white text-2xl" />
         <h1 className="text-white font-bold text-[18px] md:text-[22px]">Farm <span className="text-[#901ee4]">Metrics</span></h1>
       </div>
-      <div className="flex h-full items-center ">
+      <div className="flex h-full items-center bg-[#0a0a0a] ">
         {isVisible ? (<IoCloseSharp className="text-white text-2xl md:hidden duration-1000" onClick={handleClick}  />) : (<RiMenu4Fill className="text-white text-2xl md:hidden" onClick={handleClick} />) }
-        <ul className={`flex gap-3 text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-1000 ease-in-out md:relative absolute p-4 md:p-0 left-0 w-full z-[-1] md:z-0 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
+        <ul className={`flex gap-3 bg-[#0a0a0a] text-white flex-col md:flex-row md:h-full md:w-max md:items-center duration-1000 ease-in-out md:relative absolute p-4 md:p-0 left-0 w-full z-[-1] md:z-0 md:top-0 ${isVisible ? "  top-[99%] h-max  " : "top-[-300%]"}`} >
             <li>
             <NavLink
                 to="/"
