@@ -16,10 +16,10 @@ export const DashboardComp = ({
     <div
       className={` w-full md:max-w-full ${size === 1 ? "md:w-[30%] md:min-w-[410px]": size === 2 ? "md:w-[60%] md:min-w-[860px]" : ""} p-4 rounded-md h-[48%]
        flex flex-col justify-around ${
-        color === "dark" ? "bg-[#0a0a0a]" : "glassM"
+        color === "dark" ? "bg-white shadow-md" : "glassM"
       }`}
     >
-      <div className="text-sm w-full justify-between text-black flex font-bold  gap-1 items-center">
+      <div className="text-sm w-full justify-between text-white flex font-bold  gap-1 items-center">
         <div className="flex gap-2 items-center">
           <span
             className={`${
@@ -33,7 +33,7 @@ export const DashboardComp = ({
 
           <span
             className={`${
-              color === "dark" ? "text-white" : "text-black"
+              color === "dark" ? "text-[#0a0a0a]" : "text-black"
             } text-[20px]`}
           >
             {title}
@@ -61,14 +61,14 @@ export const DashboardComp = ({
         </div>
       </div>
       <div className="flex items-center justify-between w-full">
-        <div className="flex flex-col gap-1 text-white">
+        <div className="flex flex-col gap-1 text-[#0a0a0a]">
           <span className="text-[20px] font-bold "> {"Current: " + value}</span>
           <div className="w-[100%] h-[100px]">
             {chart}
           </div>
           <span
             className={`text-[12px] pr-2 flex w-full items-center ${
-              color === "dark" ? "text-white" : "text-[#0000006e]"
+              color === "dark" ? "text-[#0a0a0a]" : "text-[#0000006e]"
             }`}
           >
             <span className="pr-1">
