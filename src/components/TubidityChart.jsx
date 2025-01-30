@@ -1,71 +1,55 @@
 import { TurbidityChartData } from "../data/TurbidityData"
-import {
-    Chart as ChartJS,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
-    Legend
-  } from "chart.js";
-  import { Scatter } from "react-chartjs-2";
-  ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
+import { Line } from "react-chartjs-2";
+import {Chart, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, Filler} from 'chart.js'
+Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, Filler)
+
 export const TubidityChart = () => {
-  // const config ={
-  //   type: "scatter",
-  //   data,
-  //   options
-  // }
     const options = {
-      responsive: true,
-      maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            
+          x: {
+            grid: {
+                color: "gray",
+                display: true
+              },
+            ticks: {
+              font: {
+                size: 8,
+                weight: "bold",
+                color: '#ffff',
+              },
+            },
+          },
+          y: {
+            grid: {
+                color: "gray",
+                display: true
+              },
+            ticks: {
+              font: {
+                size: 14,
+                weight: "500",
+                color: '#ffff',
+              },
+            },
+          },
+        },
         plugins: {
             tooltip: true,
             legend: {
               labels: {
-                usePointStyle: true,
-                boxWidth: 5,
+                usePointStyle: false,
+                boxWidth: 10,
                 boxHeight: 5
               },
               position: "top",
-              xlabels: "Turbidity",
+              xlabels: "Temperature",
               color: "white"
             }
           },
-          scales: {
-            x: {
-              ticks: {
-                color: "gray"
-              },
-              beginAtZero: true,
-              max: 10,
-              title: {
-                color: 'gray',
-                display: true,
-                text: "X values"
-              },
-              grid: {
-                color: "gray",
-                display: true
-              }
-            },
-            y: {
-              ticks: {
-                color: "gray"
-              },
-              beginAtZero: true,
-              max: 10,
-              title: {
-                color: 'gray',
-                display: true,
-                text: "Y values"
-              },
-              grid: {
-                color: "gray",
-                display: true
-              }
-            }
-          }
-    }
-  return <Scatter options={options} data={TurbidityChartData} />;
-}
+      };
+  return <Line data={TurbidityChartData} options={options}/>
 
+}

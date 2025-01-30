@@ -1,7 +1,25 @@
-import { Pie } from 'react-chartjs-2'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-ChartJS.register(ArcElement, Tooltip, Legend);
 import { TDSChartData } from "../data/TdsData"
+import { Bar } from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarController,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  } from 'chart.js';
+  
+  ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    BarController
+  );
 export const TdsChart = () => {
     const options = {
         responsive: true,
@@ -9,6 +27,10 @@ export const TdsChart = () => {
         scales: {
             
           x: {
+            grid: {
+                color: "gray",
+                display: false
+              },
             ticks: {
               font: {
                 size: 8,
@@ -18,6 +40,10 @@ export const TdsChart = () => {
             },
           },
           y: {
+            grid: {
+                color: "gray",
+                display: false
+              },
             ticks: {
               font: {
                 size: 14,
@@ -36,11 +62,11 @@ export const TdsChart = () => {
                 boxHeight: 5
               },
               position: "top",
-              xlabels: "Temperature",
+              xlabels: "Humidity",
               color: "white"
             }
           },
       };
-  return <Pie options={options} data={TDSChartData}/>
+    return <Bar data={TDSChartData} options={options}/>
 }
 
