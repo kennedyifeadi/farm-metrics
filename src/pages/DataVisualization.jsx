@@ -5,12 +5,12 @@ import { TdsChart } from "../components/TdsChart"
 const DataVisualization = () => {
     return (
         <motion.div 
-            className="h-full w-full pt-4 md:pt-0 pb-4 md:pb-0 flex flex-col bg-[#323232] justify-center gap-4 items-center"
+            className="h-full w-full pt-4 md:pt-0 pb-4 md:pb-0 flex flex-col bg-white justify-center gap-4 items-center"
             initial={{opacity:0}}
             animate={{opacity:1}}
             exit={{opacity:0}}
             >
-                <div className="w-[90%] md:w-[60%] bg-[#0a0a0a] h-[500px] md:h-[50%] rounded-xl flex flex-col items-center p-2 ">
+                <div className="w-[90%] md:w-[60%] bg-white shadow-lg h-[500px] md:h-[50%] rounded-xl flex flex-col items-center p-2 ">
                     <h1 className="text-white font-semibold text-[24px]">Water Conditions Overview</h1>
                     <span className="h-[80%] w-full">
                     <TdsChart/>

@@ -10,7 +10,7 @@ import { HumidityAi } from "../components/HumidityAI"
 const AiSummary = () => {
     return (
         <motion.div 
-            className="h-full gap-4 md:gap-0 pt-4 pb-4 md:pb-0 md:pt-0 w-full flex flex-col md:flex-row justify-around items-center bg-[#161616]"
+            className="h-full gap-4 md:gap-0 pt-4 pb-4 md:pb-0 md:pt-0 w-full flex flex-col md:flex-row justify-around items-center bg-white"
             initial={{opacity:0}}
             animate={{opacity:1}}
             exit={{opacity:0}}
