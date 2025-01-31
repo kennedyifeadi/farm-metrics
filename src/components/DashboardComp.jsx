@@ -99,7 +99,7 @@ DashboardComp.propTypes = {
   title: PropTypes.string,
   color: PropTypes.string,
   status: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.any,
   chart: PropTypes.element,
   size: PropTypes.number,
 };
