@@ -147,7 +147,7 @@ const Dashboard = () => {
           text="Low (>300 ppm): Water contains excessive feed and waste materials."
           chart={<TdsChart />}
         />
-        <div className="w-[64.5%] p-4 bg-white shadow-lg text-black rounded-lg">
+        <div className="w-[64.5%] p-4 bg-white shadow-lg text-black rounded-lg h-max-[48%] overflow-auto">
           <h2 className="text-lg font-bold">Alerts</h2>
           {alerts.length === 0 ? (
             <p>No alerts</p>
