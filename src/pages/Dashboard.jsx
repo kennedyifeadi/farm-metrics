@@ -65,8 +65,8 @@ const Dashboard = () => {
     setConnectionStatus(isConnected);
 
     // Always attempt to fetch Blynk data, regardless of connection status
-    const newTurbidity = await fetchBlynkData("0");
-    const newTds = await fetchBlynkData("1");
+    const newTurbidity = await fetchBlynkData("1");
+    const newTds = await fetchBlynkData("0");
     setTurbidity(newTurbidity);
     setTds(newTds);
 
@@ -79,10 +79,10 @@ const Dashboard = () => {
     const currentTime = new Date().toLocaleTimeString();
 
     if (parseFloat(newTurbidity) > 66.7) {
-      newAlerts.push(`High Turbidity Alert: ${newTurbidity} at ${currentTime}`);
+      newAlerts.push(`Turbidity level is high: ${newTurbidity} at ${currentTime}`);
     }
     if (parseFloat(newTds) > 250) {
-      newAlerts.push(`High TDS Alert: ${newTds} ppm at ${currentTime}`);
+      newAlerts.push(`TDS level is high: ${newTds} ppm at ${currentTime}`);
     }
     if (newAlerts.length > 0) {
       setAlerts(prevAlerts => [...new Set([...newAlerts, ...prevAlerts])]);
