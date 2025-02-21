@@ -10,18 +10,20 @@ import { TemperatureChart } from "../components/TemperatureChart";
 import { HumidityChart } from "../components/HumidityChart";
 import { TdsChart } from "../components/TdsChart";
 import axios from "axios";
+import { onValue, ref, db } from "../notification/firebase";
 
 const Dashboard = () => {
-  const AUTH_TOKEN = "M7MEUsmZrZP0VZgzDO-T7yGsogSe4KeY";
-  const BLYNK_STATUS_URL = `https://ny3.blynk.cloud/external/api/isHardwareConnected?token=${AUTH_TOKEN}`;
-  const weatherAPI = "https://api.weatherapi.com/v1/forecast.json?key=a4f33c6a6aa4444a949135854241011&q=ibadan&days=2&aqi=yes&alerts=yes";
+  // const AUTH_TOKEN = "M7MEUsmZrZP0VZgzDO-T7yGsogSe4KeY";
+  // const BLYNK_STATUS_URL = `https://ny3.blynk.cloud/external/api/isHardwareConnected?token=${AUTH_TOKEN}`;
+  const weatherAPI =
+    "https://api.weatherapi.com/v1/forecast.json?key=a4f33c6a6aa4444a949135854241011&q=ibadan&days=2&aqi=yes&alerts=yes";
 
-  const [connectionStatus, setConnectionStatus] = useState(false);
   const [turbidity, setTurbidity] = useState("Offline");
   const [temperature, setTemperature] = useState("");
   const [tds, setTds] = useState("Offline");
   const [humidity, setHumidity] = useState("Offline");
   const [alerts, setAlerts] = useState([]);
+  const [data, setData] = useState({});
 
   const fetchData = async () => {
     try {
@@ -34,66 +36,41 @@ const Dashboard = () => {
     }
   };
 
-  async function fetchBlynkData(pin) {
-    try {
-      const response = await fetch(
-        `https://ny3.blynk.cloud/external/api/get?token=${AUTH_TOKEN}&pin=V${pin}`
-      );
-      if (!response.ok) {
-        throw new Error(`Error fetching data for V${pin}: ${response.statusText}`);
-      }
-      return await response.text();
-    } catch (error) {
-      console.error(error);
-      return "Offline";
-    }
-  }
+  const updateDashboard = () => {
+    onValue(ref(db, "sensorData"), (snapshot) => {
+      const sensorData = snapshot.val();
+      setData(sensorData); 
+      setTurbidity(sensorData?.turbidity || "Offline");
+      setTds(sensorData?.tds || "Offline");
+    });
+  };
 
-  async function fetchConnectionStatus() {
-    try {
-      const response = await fetch(BLYNK_STATUS_URL);
-      if (!response.ok) throw new Error(`Error checking connection: ${response.statusText}`);
-      return await response.json();
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
-  }
-
-  async function updateDashboard() {
-    const isConnected = await fetchConnectionStatus();
-    setConnectionStatus(isConnected);
-
-    // Always attempt to fetch Blynk data, regardless of connection status
-    const newTurbidity = await fetchBlynkData("1");
-    const newTds = await fetchBlynkData("0");
-    setTurbidity(newTurbidity);
-    setTds(newTds);
-
-    // Check alerts based on the fetched values
-    checkAlerts(newTurbidity, newTds);
-  }
 
   function checkAlerts(newTurbidity, newTds) {
     const newAlerts = [];
     const currentTime = new Date().toLocaleTimeString();
 
     if (parseFloat(newTurbidity) > 66.7) {
-      newAlerts.push(`Turbidity level is high: ${newTurbidity} at ${currentTime}`);
+      newAlerts.push(
+        `Turbidity level is high: ${newTurbidity} at ${currentTime}`
+      );
     }
     if (parseFloat(newTds) > 250) {
       newAlerts.push(`TDS level is high: ${newTds} ppm at ${currentTime}`);
     }
     if (newAlerts.length > 0) {
-      setAlerts(prevAlerts => [...new Set([...newAlerts, ...prevAlerts])]);
+      setAlerts((prevAlerts) => [...new Set([...newAlerts, ...prevAlerts])]);
     }
   }
 
   useEffect(() => {
-    updateDashboard();
-    // const interval = setInterval(updateDashboard, 20000); 
-    // return () => clearInterval(interval);
-  }, [turbidity, tds]);
+  updateDashboard();
+}, []); 
+
+useEffect(() => {
+  checkAlerts(turbidity, tds);
+}, [turbidity, tds]); 
+
 
   useEffect(() => {
     fetchData();
@@ -147,7 +124,7 @@ const Dashboard = () => {
           text="Low (>300 ppm): Water contains excessive feed and waste materials."
           chart={<TdsChart />}
         />
-        <div className="w-[64.5%] p-4 bg-white shadow-lg text-black rounded-lg h-max-[48%] overflow-auto">
+        <div className="md:w-[64.5%] w-full p-4 bg-white shadow-lg text-black rounded-lg h-max-[48%] overflow-auto">
           <h2 className="text-lg font-bold">Alerts</h2>
           {alerts.length === 0 ? (
             <p>No alerts</p>
